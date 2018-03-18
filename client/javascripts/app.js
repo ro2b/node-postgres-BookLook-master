@@ -18,7 +18,7 @@ angular.module('nodeBookLook', [])
     }
     return mydate
   }
-
+//this allows retrieving previously added inventory;
   $scope.lookupinventory = () => {
     var mybarcode = $scope.formData.barcode;
 
