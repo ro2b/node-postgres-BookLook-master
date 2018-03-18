@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app="nodeBookLook">
+  <head>
+    <title>BookLook App - with Node + Express + Angular + PostgreSQL</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="/stylesheets/style.css" media="screen">
+  </head>
+  <body ng-controller="mainController">
+    <div class="container">
+      <div class="header">
+        <h1>Twice Sold Tales Selling</h1>
+        <hr>
+        <div class="subhead">
+          <a class="nav-link" href="/">GO TO NEW INVENTORY</a>
+          <p /p>
+        </div>
+      </div>
+      <div class="BookLook-form">
+        <form>
+          <button type="submit" class="btn btn-primary btn-lg btn-block" ng-click="lookupinventory()">Lookup Inventory</button>
+          <div class="form-group">
+            <input type="integer" class="form-control input-lg" placeholder="Enter Barcode..." ng-model="formData.barcode">
+            <input type="text" class="form-control input-lg" placeholder="Title..." ng-model="formData.title">
+            <input type="text" class="form-control input-lg" placeholder="Author..." ng-model="formData.author">
+            <input type="text" class="form-control input-lg" placeholder="Description..." ng-model="formData.description">
+            Acquired Date<input type="date" class="form-control input-lg" placeholder="Enter Date Acquired..." ng-model="formData.date_acquired" >
+            <input type="numeric" class="form-control input-lg" placeholder="Original Price..." ng-model="formData.original_price">
+            <input type="date" class="form-control input-lg" placeholder="Enter Date Sold..." ng-model="formData.date_sold">
+            <input type="numeric" class="form-control input-lg" placeholder="Enter Price Sold..." ng-model="formData.sold_price">
+            <input type="date" class="form-control input-lg" placeholder="Enter Date Removed..." ng-model="formData.date_removed">
+            <input type="text" class="form-control input-lg" placeholder="Comments..." ng-model="formData.comments">
+            Status <select class="custom-select" id="inputGroupSelect01" ng-model="formData.status">
+              <!--  <option selected>Choose Status</option> -->
+              <option value="Inventory">Inventory</option>
+              <option value="Sold">Sold</option>
+              <option value="Removed">Removed</option>
+            </select>
+            <!--            <input type="text" class="form-control input-lg" placeholder="Status..." ng-model="formData.status">-->
+            <input type="text" class="form-control input-lg" placeholder="Genre..." ng-model="formData.genre">
+            <input type="text" class="form-control input-lg" placeholder="Keywords..." ng-model="formData.keywords">
+            <input type="integer" class="form-control input-lg" placeholder="ISBN..." ng-model="formData.isbn">
+          </div>
+
+      <button type="submit" class="btn btn-primary btn-lg btn-block" ng-click="updateBookLook(BookLook.id)">updateInventory</button>
+        </form>
+      </div>
+      <br>
+
+    </div>
+    <script src="//code.jquery.com/jquery-2.2.4.min.js" type="text/javascript"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.min.js"></script>
+    <script src="/javascripts/app.js"></script>
+  </body>
+</html>

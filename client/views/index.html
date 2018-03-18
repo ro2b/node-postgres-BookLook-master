@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html ng-app="nodeBookLook">
+<head>
+  <title>BookLook App - with Node + Express + Angular + PostgreSQL</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" media="screen">
+  <link rel="stylesheet" href="/stylesheets/style.css" media="screen">
+</head>
+<body ng-controller="mainController">
+  <div class="container">
+    <div class="header">
+      <h1>Twice Sold Tales Buying</h1>
+      <hr>
+      <div class="subhead">
+        <a class="nav-link" name ="SALES" href="/views/sales.html">GO TO SALES</a>
+        <p /p>
+        </div>
+      </div>
+      <div class="BookLook-form">
+        <form>
+          <button type="submit" class="btn btn-primary btn-lg btn-block" ng-click="lookupisbn()">Lookup ISBN</button>
+          <div class="form-group">
+            <input type="integer" class="form-control input-lg" placeholder="Scan ISBN..." ng-model="formData.isbn">
+            <input type="text" class="form-control input-lg" placeholder="Enter Title..." ng-model="formData.title">
+            <input type="text" class="form-control input-lg" placeholder="Enter Author..." ng-model="formData.author">
+            <input type="text" class="form-control input-lg" placeholder="Enter Description..." ng-model="formData.description">
+            Acquired Date<input type="date" class="form-control input-lg" ng-model="formData.date_acquired" >
+            <input type="numeric" class="form-control input-lg" placeholder="Original Price..." ng-model="formData.original_price">
+            <!--<input type="date" class="form-control input-lg" placeholder="Enter Date Sold..." ng-model="formData.date_sold">
+            <input type="numeric" class="form-control input-lg" placeholder="Enter Price Sold..." ng-model="formData.sold_price">
+            <input type="date" class="form-control input-lg" placeholder="Enter Date Removed..." ng-model="formData.date_removed"> -->
+            <input type="text" class="form-control input-lg" placeholder="Enter Comments..." ng-model="formData.comments">
+            Status <select class="custom-select" id="inputGroupSelect01" ng-model="formData.status">
+              <!--  <option selected>Choose Status</option> -->
+              <option value="Inventory">Inventory</option>
+              <option value="Sold">Sold</option>
+              <option value="Removed">Removed</option>
+            </select>
+            <input type="text" class="form-control input-lg" placeholder="Enter Keywords..." ng-model="formData.keywords">
+            Genre
+            <br>
+            <label>
+              <input type="radio" ng-model="formData.genre" value="Literature">
+              Literature
+            </label>
+            <label>
+              <input type="radio" ng-model="formData.genre" value="Movies">
+              Movies
+            </label>
+            <label>
+              <input type="radio" ng-model="formData.genre" value="Science Fiction">
+              Science Fiction
+            </label><br/>
+            <label>
+              <input type="radio" ng-model="formData.genre" value="Theropods">
+              Theropods
+            </label>
+            <label>
+              <input type="radio" ng-model="formData.genre" value="Sauropods">
+              Sauropods
+            </label>
+            <label>
+              <input type="radio" ng-model="formData.genre" value="Thyreophora">
+              Thyreophora
+            </label><br/>
+            <label>
+              <input type="radio" ng-model="formData.genre" value="Cerapods">
+              Cerapods
+            </label>
+            <label>
+              <input type="radio" ng-model="formData.genre" value="Biographies">
+              Biographies
+            </label>
+            <label>
+              <input type="radio" ng-model="formData.genre" value="Cooking">
+              Cooking
+            </label><br/>
+
+            <input type="integer" class="form-control input-lg" placeholder="Place Barcode and Scan..." ng-model="formData.barcode">
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg btn-block" ng-click="createBookLook()">Add to Inventory</button>
+          <button type="submit" class="btn btn-primary btn-lg btn-block" ng-click="getdropdowndata('genre')">test dropdown</button>
+
+        </form>
+      </div>
+      <br>
+      <div class="BookLook-list">
+        <ul ng-repeat="BookLook in BookLookData">
+          <li><h3><input class="lead" type="checkbox" ng-click="deleteBookLook(BookLook.id)">&nbsp;{{ BookLook.author }}</h3></li><hr>
+        </ul>
+      </div>
+    </div>
+    <script src="//code.jquery.com/jquery-2.2.4.min.js" type="text/javascript"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.min.js"></script>
+    <script src="javascripts/app.js"></script>
+  </body>
+  </html>
